@@ -1,0 +1,108 @@
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
+}
+
+group = 'com.abyanlite'
+archivesBaseName = 'unravelingbloom'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.level.net.minecraftforge', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'unravelingbloom'
+
+            mods {
+                unravelingbloom {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.level.net.minecraftforge', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'unravelingbloom'
+
+            mods {
+                unravelingbloom {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.level.net.minecraftforge', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'unravelingbloom'
+
+            mods {
+                unravelingbloom {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.level.net.minecraftforge', 'debug'
+
+            args '--mod', 'unravelingbloom', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                unravelingbloom {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    maven {
+        name = "Botania"
+        url = "https://maven.blamejared.com"
+    }
+    maven {
+        name = "Curios"
+        url = "https://maven.theillusivec4.top/"
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.10'
+    
+    // Botania dependency - using the correct Maven coordinates
+    compileOnly fg.deobf("vazkii.botania:Botania:1.20.1-446-FORGE:api")
+    runtimeOnly fg.deobf("vazkii.botania:Botania:1.20.1-446-FORGE")
+}
+
+jar {
+    manifest {
+        attributes([
+            "Specification-Title"     : "Unraveling Bloom",
+            "Specification-Vendor"    : "AbyAnLite",
+            "Specification-Version"   : "1",
+            "Implementation-Title"    : project.name,
+            "Implementation-Version"  : project.jar.archiveVersion,
+            "Implementation-Vendor"   : "AbyAnLite",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+    }

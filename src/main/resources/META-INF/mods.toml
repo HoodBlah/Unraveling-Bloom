@@ -1,0 +1,42 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+issueTrackerURL="https://github.com/abyanlite/unraveling-bloom/issues"
+
+[[mods]]
+modId="unravelingbloom"
+version="1.0.0"
+displayName="Unraveling Bloom"
+displayURL="https://github.com/abyanlite/unraveling-bloom"
+logoFile="unravelingbloom_logo.png"
+credits="Created by AbyAnLite"
+authors="AbyAnLite"
+description='''
+A Botania addon mod that adds the Unraveling Bloom flower.
+
+The Unraveling Bloom is a functional flower that deconstructs crafted items back into their base ingredients,
+consuming mana in the process. One ingredient is randomly removed from the recipe result.
+
+A unique and balanced addition to Botania's magical ecosystem.
+'''
+
+[[dependencies.unravelingbloom]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.unravelingbloom]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.unravelingbloom]]
+modId="botania"
+mandatory=true
+versionRange="[1.20.1,)"
+ordering="AFTER"
+side="BOTH"

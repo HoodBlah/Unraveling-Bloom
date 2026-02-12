@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "unravelingbloom:block/unraveling_bloom"
+  }
+}

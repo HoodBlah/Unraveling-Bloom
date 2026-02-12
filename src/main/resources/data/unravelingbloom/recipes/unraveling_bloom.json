@@ -1,0 +1,16 @@
+{
+  "type": "botania:petal_apothecary",
+  "ingredients": [
+    { "item": "botania:lime_petal" },
+    { "item": "botania:lime_petal" },
+    { "item": "botania:purple_petal" },
+    { "item": "botania:purple_petal" },
+    { "item": "botania:cyan_petal" },
+    { "item": "botania:rune_mana" },
+    { "item": "botania:rune_earth" },
+    { "item": "botania:mana_pearl" }
+  ],
+  "output": {
+    "item": "unravelingbloom:unraveling_bloom"
+  }
+}

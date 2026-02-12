@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: Unraveling Bloom
+Specification-Vendor: AbyAnLite
+Specification-Version: 1
+Implementation-Title: unravelingbloom
+Implementation-Version: 1.0.0
+Implementation-Vendor: AbyAnLite
+Implementation-Timestamp: 2026-02-11T21:22:14-0500
+
