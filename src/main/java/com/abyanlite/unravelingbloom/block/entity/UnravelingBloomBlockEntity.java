@@ -235,8 +235,10 @@ public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity {
                 continue;
             }
 
-            // Use first option if multiple (e.g., for tags like #planks)
-            ItemStack ingredientStack = items[0].copy();
+            // Randomly select from tag options (e.g., for tags like #planks)
+            // This allows crafting tables to return mixed plank types
+            int randomIndex = level.getRandom().nextInt(items.length);
+            ItemStack ingredientStack = items[randomIndex].copy();
 
             // Skip empty stacks
             if (ingredientStack.isEmpty()) {
@@ -245,7 +247,6 @@ public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity {
 
             // Skip container items (milk buckets, water buckets, etc.) - don't return them
             if (!ingredientStack.getCraftingRemainingItem().isEmpty()) {
-                System.out.println("Unraveling Bloom: Skipping container item: " + ingredientStack.getItem());
                 continue;
             }
 
