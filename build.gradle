@@ -4,8 +4,8 @@ plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
-group = 'com.abyanlite'
-archivesBaseName = 'unravelingbloom'
+group = 'com.thebravestclown'
+archivesBaseName = 'gardenoverflow'
 version = '1.0.0'
 
 java {

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "gardenoverflow:block/logistica_floris"
+  }
+}
