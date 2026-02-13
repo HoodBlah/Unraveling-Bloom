@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.0] - 2026-02-11
+
+### Added
+- Logistica Floris functional flower for Corporea logistics
+- Directional chest item extraction
+- Corporea Spark integration (required on top of flower)
+- Automatic item transfer to Corporea network
+- 10 mana per item transfer cost
+- 20-tick (1 second) transfer delay
+- Automatic item return to chest on network failure
+- Purple/gold flower texture with arrow-like petals
+- Directional placement (flower faces away from player)
+
+### Features
+- Works with any Container block (chests, barrels, etc.)
+- Transfers one item at a time
+- Maximum mana capacity: 1,000
+- Requires Corporea Spark on block above
+- Detects chest in direction flower is facing
+
+### Known Issues
+- Corporea network insertion is placeholder (currently just consumes items)
+- Need to research proper Botania Corporea API for item insertion
+
 ## [1.0.0] - 2026-02-11
 
 ### Added
@@ -13,6 +37,7 @@
 - Purple flower texture with inward-curling petals
 - Full integration with Botania's creative tabs
 - Transparent rendering in-game
+- Random tag ingredient selection (crafting tables return mixed plank types)
 
 ### Features
 - Works with all vanilla and modded crafting recipes

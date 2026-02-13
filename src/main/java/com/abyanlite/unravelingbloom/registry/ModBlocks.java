@@ -8,6 +8,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import com.abyanlite.unravelingbloom.UnravelingBloomMod;
 import com.abyanlite.unravelingbloom.block.UnravelingBloomBlock;
+import com.abyanlite.unravelingbloom.block.LogisticaFlorisBlock;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.BlockItem;
@@ -21,6 +22,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> UNRAVELING_BLOOM = BLOCKS.register("unraveling_bloom",
             UnravelingBloomBlock::new);
+
+    public static final RegistryObject<Block> LOGISTICA_FLORIS = BLOCKS.register("logistica_floris",
+            LogisticaFlorisBlock::new);
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

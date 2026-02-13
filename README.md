@@ -1,21 +1,54 @@
 # Unraveling Bloom
 
-A Botania addon mod that adds a unique functional flower for deconstructing crafted items.
+A Botania addon mod that adds unique functional flowers for crafting manipulation and Corporea logistics.
 
 ## About
 
+This mod adds two functional flowers to Botania:
+
+### Unraveling Bloom
+
 The **Unraveling Bloom** is a functional flower that deconstructs crafted items back into their base ingredients, consuming mana in the process.
 
-### Features
-
+**Features:**
 - **Deconstruction Mechanic**: Throw a crafted item near the flower to uncraft it
 - **Mana Cost**: 33,333 mana per uncrafting operation
 - **Smart Consumption**: 
   - Recipes with 4+ ingredients: 50% chance to consume one random ingredient
   - Recipes with <4 ingredients: Returns all ingredients
+- **Random Tag Selection**: When recipes use tags (like any planks), returns a random item from that tag
 - **Container Item Handling**: Automatically skips non-returnable items (buckets, bottles, etc.)
 - **Tool Support**: Works with fresh, undamaged tools and armor
 - **Sound Effects**: Burp when consuming, anvil sound when uncrafting
+
+**Usage:**
+1. Place the flower on grass or dirt
+2. Connect it to a mana source (Mana Pool)
+3. Throw a crafted item near the flower
+4. Wait for it to uncraft (costs 33,333 mana)
+5. Collect the returned ingredients
+
+### Logistica Floris
+
+The **Logistica Floris** is a directional logistics flower that exports items from chests to the Corporea network.
+
+**Features:**
+- **Chest Export**: Extracts items one at a time from a chest placed in front
+- **Corporea Integration**: Requires a Corporea Spark placed on top of the flower
+- **Internal Buffer**: Has a 1-slot internal inventory that holds items from the chest
+- **Network Access**: Items in the flower's buffer are automatically available to the Corporea network
+- **Mana Cost**: 10 mana per item transferred from chest to buffer
+- **Transfer Delay**: 20-tick (1 second) cooldown between transfers
+- **Automatic Operation**: No player interaction needed once set up
+
+**Usage:**
+1. Place the flower facing a chest (the flower will face away from you when placed)
+2. Place a Corporea Spark on top of the flower
+3. Connect the flower to a mana source (Mana Pool or Mana Spreader)
+4. Place items in the chest
+5. The flower will automatically pull items into its buffer (10 mana each)
+6. Items in the flower's buffer are available to the Corporea network
+7. When the network requests matching items, they are pulled from the flower's inventory
 
 ### Requirements
 

@@ -15,11 +15,13 @@ public class ModEvents {
         // Add to Botania's Functional Flowers tab if available
         if (event.getTabKey().location().toString().equals("botania:functional_flowers")) {
             event.accept(ModItems.UNRAVELING_BLOOM);
+            event.accept(ModItems.LOGISTICA_FLORIS);
         }
         
         // Also add to Nature Blocks tab as fallback
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.accept(ModItems.UNRAVELING_BLOOM);
+            event.accept(ModItems.LOGISTICA_FLORIS);
         }
     }
 }

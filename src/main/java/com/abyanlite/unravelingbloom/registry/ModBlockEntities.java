@@ -7,6 +7,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import com.abyanlite.unravelingbloom.UnravelingBloomMod;
 import com.abyanlite.unravelingbloom.block.entity.UnravelingBloomBlockEntity;
+import com.abyanlite.unravelingbloom.block.entity.LogisticaFlorisBlockEntity;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import vazkii.botania.api.block.Bound;
@@ -24,6 +25,15 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(
                             UnravelingBloomBlockEntity::new,
                             ModBlocks.UNRAVELING_BLOOM.get()
+                    ).build(null)
+            );
+
+    @SuppressWarnings("unchecked")
+    public static final Supplier<BlockEntityType<?>> LOGISTICA_FLORIS =
+            BLOCK_ENTITIES.register("logistica_floris", () ->
+                    BlockEntityType.Builder.of(
+                            LogisticaFlorisBlockEntity::new,
+                            ModBlocks.LOGISTICA_FLORIS.get()
                     ).build(null)
             );
 

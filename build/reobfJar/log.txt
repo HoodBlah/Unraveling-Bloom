@@ -1,4 +1,4 @@
-Java Launcher: C:\Program Files\Java\jdk-17\bin\java.exe
+Java Launcher: C:\Program Files\Java\jdk-25\bin\java.exe
 Arguments: '--in-jar, C:\Users\Abyan Malik\Documents\coding\unravelingbloom\Unraveling-Bloom\build\libs\unravelingbloom-1.0.0.jar, --out-jar, C:\Users\Abyan Malik\Documents\coding\unravelingbloom\Unraveling-Bloom\build\reobfJar\output.jar, --srg-in, C:\Users\Abyan Malik\Documents\coding\unravelingbloom\Unraveling-Bloom\build\createMcpToSrg\output.tsrg, --live'
 Classpath:
  - C:\Users\Abyan Malik\.gradle\caches\forge_gradle\maven_downloader\net\md-5\SpecialSource\1.11.0\SpecialSource-1.11.0-shaded.jar
@@ -128,7 +128,7 @@ Loading mappings... 40%
 Loading mappings... 50%
 0 packages, 7436 classes, 33135 fields, 63477 methods
 Remapping final jar
-Remapping jar...  3%
+Remapping jar...  2%
 Remapping jar... 10%
 Remapping jar... 20%
 Remapping jar... 30%

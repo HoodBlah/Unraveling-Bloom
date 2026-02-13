@@ -12,10 +12,13 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Mod("unravelingbloom")
 public class UnravelingBloomMod {
     public static final String MODID = "unravelingbloom";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
     public UnravelingBloomMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -48,6 +51,10 @@ public class UnravelingBloomMod {
                 // Register render type for transparency
                 net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(
                     ModBlocks.UNRAVELING_BLOOM.get(),
+                    net.minecraft.client.renderer.RenderType.cutout()
+                );
+                net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(
+                    ModBlocks.LOGISTICA_FLORIS.get(),
                     net.minecraft.client.renderer.RenderType.cutout()
                 );
             });

@@ -20,11 +20,19 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.util.RandomSource;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import vazkii.botania.api.block_entity.FunctionalFlowerBlockEntity;
 import vazkii.botania.api.block_entity.RadiusDescriptor;
 import vazkii.botania.api.mana.ManaPool;
+import vazkii.botania.api.BotaniaForgeCapabilities;
+import vazkii.botania.api.block.Wandable;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.core.Direction;
 
-public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity {
+public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity implements Wandable {
 
     private static final int MANA_COST = 33333;
     private static final int COOLDOWN = 100;
@@ -37,6 +45,18 @@ public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity {
 
     public UnravelingBloomBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.UNRAVELING_BLOOM.get(), pos, state);
+    }
+
+    @NotNull
+    @Override
+    public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable net.minecraft.core.Direction side) {
+        if (cap == BotaniaForgeCapabilities.MANA_RECEIVER) {
+            return LazyOptional.of(() -> (T) this).cast();
+        }
+        if (cap == BotaniaForgeCapabilities.WANDABLE) {
+            return LazyOptional.of(() -> (T) this).cast();
+        }
+        return super.getCapability(cap, side);
     }
 
     @Override
@@ -313,5 +333,11 @@ public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity {
     @Override
     public RadiusDescriptor getRadius() {
         return RadiusDescriptor.Rectangle.square(getBlockPos(), DETECTION_RADIUS);
+    }
+
+    @Override
+    public boolean onUsedByWand(@Nullable Player player, ItemStack wand, Direction side) {
+        // Allow wand binding (handled by parent) but no special right-click behavior
+        return false;
     }
 }

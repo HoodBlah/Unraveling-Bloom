@@ -17,6 +17,9 @@ public class ModItems {
     public static final RegistryObject<Item> UNRAVELING_BLOOM = ITEMS.register("unraveling_bloom",
             () -> new BlockItem(ModBlocks.UNRAVELING_BLOOM.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> LOGISTICA_FLORIS = ITEMS.register("logistica_floris",
+            () -> new BlockItem(ModBlocks.LOGISTICA_FLORIS.get(), new Item.Properties()));
+
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
     }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "unravelingbloom:block/logistica_floris"
+  }
+}
