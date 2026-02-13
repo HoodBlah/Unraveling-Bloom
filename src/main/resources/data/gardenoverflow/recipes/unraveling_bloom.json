@@ -1,5 +1,8 @@
 {
   "type": "botania:petal_apothecary",
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  },
   "ingredients": [
     { "item": "botania:lime_petal" },
     { "item": "botania:lime_petal" },

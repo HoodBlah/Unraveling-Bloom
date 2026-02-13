@@ -1,0 +1,19 @@
+{
+  "type": "botania:petal_apothecary",
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  },
+  "ingredients": [
+    { "item": "botania:light_blue_petal" },
+    { "item": "botania:light_blue_petal" },
+    { "item": "botania:cyan_petal" },
+    { "item": "botania:cyan_petal" },
+    { "item": "botania:purple_petal" },
+    { "item": "botania:rune_air" },
+    { "item": "botania:rune_mana" },
+    { "item": "botania:corporea_spark" }
+  ],
+  "output": {
+    "item": "gardenoverflow:logistica_floris"
+  }
+}
