@@ -11,22 +11,22 @@ STATUS: PRODUCTION READY ✅
 
 Java Source Files (6 classes)
 ────────────────────────────────────────────────────────────────
-✅ src/main/java/com/abyanlite/unravelingbloom/UnravelingBloomMod.java
+✅ src/main/java/com/thebravestclown/unravelingbloom/UnravelingBloomMod.java
    └─ Forge mod entry point and registration setup
 
-✅ src/main/java/com/abyanlite/unravelingbloom/block/UnravelingBloomBlock.java
+✅ src/main/java/com/thebravestclown/unravelingbloom/block/UnravelingBloomBlock.java
    └─ Block definition with Botania integration
 
-✅ src/main/java/com/abyanlite/unravelingbloom/block/entity/UnravelingBloomBlockEntity.java
+✅ src/main/java/com/thebravestclown/unravelingbloom/block/entity/UnravelingBloomBlockEntity.java
    └─ 400+ line core logic: mana, recipes, validation, uncrafting
 
-✅ src/main/java/com/abyanlite/unravelingbloom/registry/ModBlocks.java
+✅ src/main/java/com/thebravestclown/unravelingbloom/registry/ModBlocks.java
    └─ Block registry using Forge DeferredRegister
 
-✅ src/main/java/com/abyanlite/unravelingbloom/registry/ModBlockEntities.java
+✅ src/main/java/com/thebravestclown/unravelingbloom/registry/ModBlockEntities.java
    └─ Block entity registry with proper type building
 
-✅ src/main/java/com/abyanlite/unravelingbloom/config/UnravelingBloomConfig.java
+✅ src/main/java/com/thebravestclown/unravelingbloom/config/UnravelingBloomConfig.java
    └─ Forge configuration system with 4 configurable values
 
 
@@ -553,7 +553,7 @@ Forge:                  1.20.1-47.2.0+
 Botania:                1.20.1-444+
 Java:                   17+
 
-Author:                 AbyAnLite
+Author:                 thebravestclown
 Created:                February 11, 2026
 Status:                 COMPLETE ✅
 License:                All Rights Reserved
