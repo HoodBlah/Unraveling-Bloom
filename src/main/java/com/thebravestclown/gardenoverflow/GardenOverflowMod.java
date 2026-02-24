@@ -6,7 +6,6 @@ import com.thebravestclown.gardenoverflow.registry.ModBlockEntities;
 import com.thebravestclown.gardenoverflow.registry.ModBlocks;
 import com.thebravestclown.gardenoverflow.registry.ModItems;
 import com.thebravestclown.gardenoverflow.registry.ModMenus;
-
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -44,7 +43,7 @@ public class GardenOverflowMod {
         // Common setup
     }
 
-    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD)
+    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {

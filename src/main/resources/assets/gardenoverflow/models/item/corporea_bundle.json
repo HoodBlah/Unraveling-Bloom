@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gardenoverflow:item/corporea_bundle"
+  }
+}

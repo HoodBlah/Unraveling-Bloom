@@ -114,17 +114,12 @@ public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity impl
         for (ItemEntity entity : items) {
             ItemStack stack = entity.getItem();
 
-            // Only process single items
-            if (stack.getCount() != 1) {
-                continue;
-            }
-
             // Validate the item
             if (!isValid(stack)) {
                 continue;
             }
 
-            // Attempt uncrafting
+            // Attempt uncrafting (passing stack count)
             if (attemptUncraft(stack)) {
                 // Success: remove the item, subtract mana, set cooldown
                 entity.discard();
@@ -199,15 +194,16 @@ public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity impl
         RecipeManager recipeManager = level.getRecipeManager();
 
         // Find all crafting recipes that match this item
-        // Filter efficiently: check output item and count BEFORE any logging
+        // Filter: check if the input stack count matches the recipe output count
         List<CraftingRecipe> matchingRecipes = recipeManager.getAllRecipesFor(
                 RecipeType.CRAFTING
         )
                 .stream()
                 .filter(recipe -> {
                     ItemStack recipeOutput = recipe.getResultItem(level.registryAccess());
-                    // Quick filter: output must be exactly 1 item and match the input
-                    return recipeOutput.getCount() == 1 && ItemStack.isSameItem(inputStack, recipeOutput);
+                    // Match: same item and stack count must match recipe output count
+                    return ItemStack.isSameItem(inputStack, recipeOutput) 
+                        && inputStack.getCount() == recipeOutput.getCount();
                 })
                 .collect(Collectors.toList());
 
@@ -228,7 +224,7 @@ public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity impl
     /**
      * Processes a recipe: extracts ingredients, validates them,
      * and spawns ingredients with possible consumption based on recipe size.
-     * - Recipes with 4+ ingredients: 50% chance to consume one random ingredient
+     * - Recipes with 4+ ingredients: 10% chance to consume one random ingredient
      * - Recipes with less than 4 ingredients: no consumption, all ingredients returned
      */
     private boolean processRecipe(ItemStack inputStack, CraftingRecipe recipe) {
@@ -284,8 +280,8 @@ public class UnravelingBloomBlockEntity extends FunctionalFlowerBlockEntity impl
         // Apply consumption logic based on ingredient count
         boolean consumed = false;
         if (ingredientStacks.size() >= 4) {
-            // 50% chance to consume one random ingredient
-            if (level.getRandom().nextBoolean()) {
+            // 10% chance to consume one random ingredient
+            if (level.getRandom().nextInt(10) == 0) {
                 int removeIndex = level.getRandom().nextInt(ingredientStacks.size());
                 ingredientStacks.remove(removeIndex);
                 consumed = true;
