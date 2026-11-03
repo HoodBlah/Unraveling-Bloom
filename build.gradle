@@ -1,0 +1,60 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.143'
+}
+
+version = mod_version
+group = 'com.thebravestclown'
+base { archivesName = "${mod_id}-${minecraft_version}" }
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = neo_version
+    runs {
+        configureEach { gameDirectory = file('run/') }
+        client { client() }
+        server { server(); programArgument '--nogui' }
+    }
+    mods { "${mod_id}" { sourceSet(sourceSets.main) } }
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.blamejared.com/' }       // Patchouli
+    maven { url = 'https://maven.theillusivec4.top/' }    // Curios
+}
+
+dependencies {
+    // Botania Revived jar(s) placed in ./libs
+    implementation fileTree(dir: 'libs', include: ['*.jar'], exclude: ['*-sources.jar', '*-dev.jar'])
+    implementation "vazkii.patchouli:Patchouli:${patchouli_version}"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+}
+
+tasks.register('checkBotaniaJar') {
+    doFirst {
+        if (fileTree(dir: 'libs', include: '*.jar').isEmpty()) {
+            throw new GradleException('No Botania Revived jar in ./libs - see libs/README.txt')
+        }
+    }
+}
+tasks.named('compileJava') { dependsOn 'checkBotaniaJar' }
+
+tasks.register('generateModMetadata', ProcessResources) {
+    var props = [
+        minecraft_version: minecraft_version, neo_version_range: neo_version_range,
+        loader_version_range: loader_version_range, mod_id: mod_id, mod_name: mod_name,
+        mod_license: mod_license, mod_version: mod_version, mod_authors: mod_authors,
+        botania_version: botania_version
+    ]
+    inputs.properties props
+    expand props
+    from 'src/main/templates'
+    into layout.buildDirectory.dir('generated/sources/modMetadata')
+}
+sourceSets.main.resources.srcDir tasks.named('generateModMetadata')
+neoForge.ideSyncTask tasks.named('generateModMetadata')
+
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }

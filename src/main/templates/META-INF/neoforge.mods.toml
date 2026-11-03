@@ -1,0 +1,38 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+logoFile="gardenoverflow_logo.png"
+authors="${mod_authors}"
+description='''
+A Botania addon with two functional flowers.
+
+Unraveling Bloom: throw a crafted item near it and it breaks the item back down into its ingredients, using mana.
+
+Logistica Floris: moves items from an adjacent chest into the best inventory on its Corporea network, using mana.
+'''
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="[${minecraft_version}]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="botania"
+    type="required"
+    versionRange="[${botania_version},)"
+    ordering="AFTER"
+    side="BOTH"
