@@ -1,4 +1,4 @@
-# Unraveling Bloom (Garden Overflow)
+# Garden Overflow 1.21.1
 
 A Botania addon with two functional flowers. Built for **Minecraft 1.21.1 / NeoForge** with
 [Botania Revived](https://github.com/Velron-Devs/Botania-Revived).
