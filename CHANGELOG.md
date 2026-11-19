@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.2.1] - Logistica Floris stall fix
+- Logistica Floris no longer gets stuck on the first occupied chest slot when the network cannot accept that item; the remaining slots are still processed.
+- Leftovers spill into the next best inventory once the preferred one is full, instead of being returned to the chest.
+- A pass that moves nothing now backs off 10 ticks instead of rescanning every tick.
+
 ## [1.2.0] - Minecraft 1.21.1 / NeoForge port
 - Ported from Forge 1.20.1 to NeoForge 1.21.1 and Botania Revived.
 - Flowers now use Botania's own `SpecialFlowerBlock` and mana binding (wand binding works, radius overlay and mana HUD shown).
