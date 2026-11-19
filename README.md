@@ -17,7 +17,8 @@ Throw a crafted item within 2 blocks and it is broken back into its recipe ingre
 Moves items from an adjacent container into the best inventory on its Corporea network.
 - Place a Corporea Spark on the flower, put a chest next to it.
 - Defaults: up to 24 items per second, 10 mana per item, holds 1,000 mana. All configurable in `config/gardenoverflow-common.toml` under `[logistica_floris]`.
-- Prefers the inventory that already holds the most of that item, else the first with a free slot.
+- Prefers the inventory that already holds the most of that item, fills it first, then spills the rest into the next best inventories.
+- An item the network cannot take is skipped, so it never blocks the other slots of the chest.
 
 ## Mana
 Bind either flower to a Mana Pool with the Wand of the Forest (shift-click the flower, then the pool).
